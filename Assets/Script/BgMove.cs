@@ -12,7 +12,7 @@ public class BgMove : MonoBehaviour
     void Update()
     {
         // Input.GetKey: 키보드 입력이 들어오면 true 리턴
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             // 좌표를 직접 지정할 수는 없어 vector로 넣어야 함
             // 디바이스 성능에 따라 프레임이 다르기 때문에 deltaTime으로 모든 기기에 동일하게 해줌 
@@ -22,7 +22,7 @@ public class BgMove : MonoBehaviour
             }
             rt.anchoredPosition = new Vector2(x, rt.anchoredPosition.y);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             float x = rt.anchoredPosition.x + (speed * Time.deltaTime);
             if (x > maxX * -1) {
