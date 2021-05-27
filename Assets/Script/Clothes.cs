@@ -5,7 +5,8 @@ using UnityEngine;
 public class Clothes : MonoBehaviour
 {
     public Character character;
+    public Sprite clothesImage;
     public void ClickShirt() {
-
+        character.ChangeShirt(clothesImage);
     }
 }
