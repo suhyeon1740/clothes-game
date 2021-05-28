@@ -20,6 +20,8 @@ public class Timer : MonoBehaviour
         if (time > 0) // 시간 예외처리
         {
             StartCoroutine(DoTime());
+        } else {
+            GameManager.Instance.ChangeState(2); // 게임종료 상태로 변경
         }
 
     }
