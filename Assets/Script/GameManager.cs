@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     // 0: 플레이전, 1: 플레이중, 2: 게임종료
     // TODO: enum으로 해야 관리가 편하기 때문에 quizGame 참고해서 변경 필요 
     public RectTransform background;
+    public Character character;
     private int gameState = 0;
     public int GetState() {
         return gameState;
@@ -39,7 +40,8 @@ public class GameManager : MonoBehaviour
     {
         gameState = change;
         if (gameState == 2){
-            background.DOAnchorPosX(1088.2f,1); // 1초동안 1088 위치로 이동
+            background.DOAnchorPosX(693f,1); // 1초동안 693 위치로 이동
+            character.TurnLeft();
         }
     }
 }

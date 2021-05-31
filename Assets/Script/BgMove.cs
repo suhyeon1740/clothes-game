@@ -29,6 +29,10 @@ public class BgMove : MonoBehaviour
     // 키보드가 눌리는 걸 매 프레임마다 감시해야 하기 때문에 update에 코드 작성
     void Update()
     {
+        if (GameManager.Instance.GetState() == 2)
+        {   // 게임이 종료 후 버튼 클릭 막기
+            return;
+        }
         // Input.GetKey: 키보드 입력이 들어오면 true 리턴
         if (isRightClick)
         {
