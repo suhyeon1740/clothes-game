@@ -7,7 +7,14 @@ public class ResultButton : MonoBehaviour
     public Character character;
     string answerShirtName = "character_shirt1";
 
-    public void checkAnswer()
+    public void ResultButtonClick() {
+        if (GameManager.Instance.GetState() == 2) {
+            return;
+        }
+        GameManager.Instance.ChangeState(2);
+    }
+
+    public void CheckAnswer()
     {
         // 옷을 안입었거나 정답과 다르면
         if (character.shirt.sprite == null ||

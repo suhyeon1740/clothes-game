@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     // TODO: enum으로 해야 관리가 편하기 때문에 quizGame 참고해서 변경 필요 
     public RectTransform background;
     public Character character;
+    public ResultButton resultButton;
     private int gameState = 0;
     public int GetState() {
         return gameState;
@@ -40,7 +41,12 @@ public class GameManager : MonoBehaviour
     {
         gameState = change;
         if (gameState == 2){
-            background.DOAnchorPosX(693f,1); // 1초동안 693 위치로 이동
+            float distance = Mathf.Abs(background.anchoredPosition.x - 693f); // 남은거리
+            float offset = 1 / 1806.2f;
+            // background.DOAnchorPosX(693f, 1); // 1초동안 693 위치로 이동
+            // 1초동안 거리 계산해서 693 위치로 이동
+            // onComplete : 캐릭터가 이동한 후에 결과 호출되게 처리 
+            background.DOAnchorPosX(693f,distance * offset).onComplete += resultButton.CheckAnswer;  
             character.TurnLeft();
         }
     }

@@ -17,7 +17,7 @@ public class Timer : MonoBehaviour
         yield return new WaitForSeconds(1.0f); // 1초 대기 후 아래 코드 실행
         time--;
         timeLable.text = time.ToString();
-        if (time > 0) // 시간 예외처리
+        if (time > 0 && GameManager.Instance.GetState() != 2) // 시간 예외처리
         {
             StartCoroutine(DoTime());
         } else {
